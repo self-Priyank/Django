@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Students
+        </title>
+        <style>
+            h1 {color: navy;}
+            h2 {color: limegreen;}
+        </style>
+    </head>
+
+    <body>
+        <h1>All Students:</h1>
+        {% for s in students %}
+            <h2>{{s.name}}</h2>
+            <p>Age: {{s.age }}<br>
+               Email: {{s.email}}<br>
+               City: {{s.city}}<br>
+               Course: {{s.course}}</p>
+            <hr>
+        {% endfor %}
+    </body>
+</html>
