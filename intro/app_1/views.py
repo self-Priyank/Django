@@ -3,12 +3,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from . import models
 
-def home(request):
-    if request.user.is_active:
-        return HttpResponse("<body><h1 style='color:navy;'>Welcome to Django!</h1>" \
-        "<p style='color:deeppink; font-size:24px;'> This is app_1 </p></body>")
+def login_app(request):
+    if request.method == "POST":
+        return HttpResponse("Access denied")
     
-    return HttpResponse("Access denied")
+    return render(request)
 
 def students(request):
     if not request.user.is_active:
