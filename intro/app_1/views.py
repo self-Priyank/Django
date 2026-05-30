@@ -15,4 +15,4 @@ def students(request):
     
     all_students = models.Student.objects.all()
     data = {'students': all_students}
-    return render(request, 'students.html', data)
+    return render(request, 'app_1/students.html', data)
