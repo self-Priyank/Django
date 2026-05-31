@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from . import models
@@ -20,5 +20,8 @@ def login_app(request):
 @login_required
 def students(request):
     all_students = models.Student.objects.all()
-    data = {'students': all_students}
-    return render(request, "app_1/students.html", data)
+    return render(request, "app_1/students.html", {'students': all_students})
+
+def logout_app(request):
+    logout(request)
+    return redirect("login")
