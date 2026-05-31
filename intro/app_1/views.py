@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from . import models
 
@@ -16,10 +17,8 @@ def login_app(request):
     
     return render(request, "app_1/login.html")
 
+@login_required
 def students(request):
-    if not request.user.is_authenticated:
-        return redirect("login")
-    
     all_students = models.Student.objects.all()
     data = {'students': all_students}
     return render(request, "app_1/students.html", data)
