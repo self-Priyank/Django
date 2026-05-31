@@ -12,8 +12,11 @@ def login_app(request):
         if user is None:
             return render(request, "app_1/login.html", {"error": "Invalid Username or password"})    
         else:
-            login(request, user)
-            return redirect("students")
+            if user.username != U:
+                return render(request, "app_1/login.html", {"error": "Username is case-sensitive"})
+            else:    
+                login(request, user)
+                return redirect("students")                
     
     return render(request, "app_1/login.html")
 
