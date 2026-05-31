@@ -7,13 +7,12 @@ def login_app(request):
         U = request.POST.get("username")
         P = request.POST.get("password")
         user = authenticate(request, username=U, password=P)
-        
-        if user is not None & user.is_active:
-            if user.username != U:
-                return render(request, "app_1/login.html", {"error": "Invalid username or password"})
-            else:  
-                login(request, user)
-                return redirect("students")    
+
+        if user.username != U:
+            return render(request, "app_1/login.html", {"error": "Invalid username or password"})
+        elif user is not None & user.is_active:
+            login(request, user)
+            return redirect("students")            
         else:
             return render(request, "app_1/login.html", {"error": "Invalid username or password"})   
     
