@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    
+
     <head>
         <title>Login</title>
 
@@ -65,14 +65,14 @@
                 <div class="error">{{ error }}</div>
             {% endif %}
 
-            <form method="POST">
+            <form method="POST", autocomplete="off">
                 {% csrf_token %}
 
                 <label>Username</label>
-                <input type="text" name="username" required>
+                <input type="text" name="username" required, autocomplete="off">
 
                 <label>Password</label>
-                <input type="password" name="password" required>
+                <input type="password" name="password" required, autocomplete="off">
 
                 <button type="submit">Login</button>
             </form>
