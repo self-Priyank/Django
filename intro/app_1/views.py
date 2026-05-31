@@ -8,15 +8,15 @@ def login_app(request):
         P = request.POST.get("password")
         user = authenticate(request, username=U, password=P)
         
-        if user is None:
-            return render(request, "app_1/login.html", {"error": "Invalid Username or password"})    
-        else:
+        if user is not None & user.is_active:
             if user.username != U:
-                return render(request, "app_1/login.html", {"error": "Username is case-sensitive"})
+                return render(request, "app_1/login.html", {"error": "Invalid username or password"})
             else:    
                 login(request, user)
-                return redirect("students")                
-    
+                return redirect("students")    
+        else:
+            return render(request, "app_1/login.html", {"error": "Invalid username or password"})
+                            
     return render(request, "app_1/login.html")
 
 def students(request):
