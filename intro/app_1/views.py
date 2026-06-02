@@ -17,7 +17,7 @@ def login_app(request):
     
     return render(request, "app_1/login.html")
 
-@login_required
+@login_required(login_url="login")
 def students(request):
     all_students = models.Student.objects.all()
     return render(request, "app_1/students.html", {'students': all_students})
