@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from . import models
+from .models import Student
 
 def login_app(request):
     if request.method == "POST":
@@ -19,7 +19,7 @@ def login_app(request):
 
 @login_required(login_url="login")
 def students(request):
-    all_students = models.Student.objects.all()
+    all_students = Student.objects.all()
     return render(request, "app_1/students.html", {'students': all_students})
 
 def logout_app(request):
