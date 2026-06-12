@@ -1,3 +1,4 @@
-from rest_framework.decorators import all
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from django.shortcuts import render, redirect
 from app_1.models import Student
