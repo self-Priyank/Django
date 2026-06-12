@@ -1,3 +1,3 @@
+from rest_framework.decorators import all
 from django.shortcuts import render, redirect
-
-# Create your views here.
+from app_1.models import Student
