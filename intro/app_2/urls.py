@@ -1,4 +1,6 @@
 from . import views
 from django.urls import path
 
-urlpatterns = []
+urlpatterns = [
+    path('students/', views.students_view.as_view())
+]
