@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 from .serializer import StudentSerializer
 from app_1.models import Student
 
-class Students_view(APIView):
+class StudentView(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
