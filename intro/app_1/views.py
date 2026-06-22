@@ -11,16 +11,16 @@ def login_app(request):
 
         if user is not None and user.is_active and user.username == U:
             login(request, user)
-            return redirect("students")            
+            return redirect("student")            
         else:
             return render(request, "app_1/login.html", {"error": "Invalid username or password"})   
     
     return render(request, "app_1/login.html")
 
 @login_required(login_url="login")
-def students(request):
+def student(request):
     all_students = Student.objects.all()
-    return render(request, "app_1/students.html", {'students': all_students})
+    return render(request, "app_1/student.html", {'students': all_students})
 
 def logout_app(request):
     logout(request)
